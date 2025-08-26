@@ -1,0 +1,84 @@
+# Agent Tool 配置示例文件
+# 复制此文件到 ~/.agent_tool/config.yaml 并根据需要修改
+
+# 大语言模型配置
+llm:
+  # 服务商选择: openai, anthropic, zhipuai, local
+  provider: openai
+  
+  # OpenAI 配置
+  model: gpt-3.5-turbo
+  api_key: "your-openai-api-key-here"
+  base_url: ""  # 可选，用于代理或自定义端点
+  
+  # Anthropic 配置示例（当provider=anthropic时）
+  # model: claude-3-sonnet-20240229
+  # api_key: "your-anthropic-api-key-here"
+  
+  # 智谱清言配置示例（当provider=zhipuai时）
+  # model: glm-4  # 可选: glm-4, glm-4-turbo, glm-3-turbo
+  # api_key: "your-zhipuai-api-key-here"
+  # base_url: "https://open.bigmodel.cn/api/paas/v4/"  # 智谱AI API端点
+  
+  # 本地模型配置示例（当provider=local时）
+  # model: llama2
+  # endpoint: "http://localhost:11434"  # Ollama默认端点
+  
+  # 生成参数
+  temperature: 0.3      # 创造性程度，范围0-1
+  max_tokens: 1000      # 最大生成长度
+
+# 安全配置
+security:
+  # 严格模式：启用时会阻止高风险命令
+  strict_mode: true
+  
+  # 是否允许需要sudo权限的命令
+  allow_sudo: false
+  
+  # 限制文件操作的目录（为空则不限制）
+  allowed_dirs: 
+    - "/home/username/workspace"
+    - "/tmp"
+  
+  # 是否阻止危险命令
+  dangerous_commands_block: true
+
+# 执行配置
+execution:
+  # 命令执行超时时间（秒）
+  timeout: 30
+  
+  # 默认工作目录（为空则使用当前目录）
+  working_dir: ""
+  
+  # 是否默认启用干运行模式（只显示命令不执行）
+  dry_run_default: false
+  
+  # 是否自动确认执行（跳过用户确认）
+  auto_confirm: false
+
+# 日志配置
+logging:
+  # 日志级别: DEBUG, INFO, WARNING, ERROR
+  level: INFO
+  
+  # 日志文件路径（相对于配置目录）
+  file: "logs/agent.log"
+  
+  # 日志文件最大大小
+  max_size: "10MB"
+  
+  # 保留的日志文件备份数量
+  backup_count: 3
+
+# 用户界面配置
+ui:
+  # 是否使用Rich库的美观输出
+  use_rich: true
+  
+  # 是否显示警告信息
+  show_warnings: true
+  
+  # 是否对高风险命令进行确认
+  confirm_high_risk: true
