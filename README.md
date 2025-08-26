@@ -212,6 +212,7 @@ options:
 - GPT-3.5 Turbo
 - GPT-4
 - GPT-4 Turbo
+- 智谱清言（GLM-4）
 - 兼容OpenAI API的其他模型
 
 ### Anthropic模型
@@ -304,3 +305,4 @@ python main.py --setup
 ---
 
 **🎉 享受智能命令行体验！**
+
